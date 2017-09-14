@@ -78,7 +78,7 @@ JSR173 |Streaming API for XML (StAX)                                  |1.0
 
 
 公司                                   | SUN          | Oracle     |Apache     | RedHat    | IBM              |开源社区|其他  
-       ------    |------        |------      |------     |------     |------            |------|------  
+------           |------        |------      |------     |------     |------            |------|------  
 基于Java EE标准          |Glassfish     |WebLogic    |Geronimo   | JBoss     | Websphere        |      |   
 基于Java NIO标准        |Grizzly       |            |Mina       | Netty     |                  |      |  
 基于Restful标准          |Jersey        |            |cxf/wink   |           |                  |       |  
