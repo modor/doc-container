@@ -156,3 +156,5 @@ JavaMail API支持调试，这在出现问题的时候是非常有用的。我�
 技术说明：SMTP在发送邮件时不会根据邮件内容中的发送者判断发生错误时候邮件应该发送给谁。而是通过SMTP的"envelope sender"值来判断。JavaMail默认会根据JavaMail Session中的mail.smtp.from值来设置该值（Commons Email通过使用System.getProperties()来初始化JavaMail Session）。也就是说，如果"envelope sender"的值没有被设定，JavaMail将使用“from”中的值。在Commons Email中，如果bounceAddress被设置了，Commons Email在初始化session时候将会使用bounceAddress值来设定mail.smtp.from属性，同时覆盖其他可以被设置的值。  
 
 注意：这是唯一一个控制处理返回邮件的方式。SMTP头的 "Errors-to:"属性已经废弃不用，在处理退回邮件时是不可信的。另外注意，除非你设置了退回地址，否则，使用一个不受信的地址当做发件地址是个不好的做法。如果应用允许用户发送邮件时设置发送地址，那么我们就应该确保设置的退回地址是一个可用的地址。
+
+**原文地址：** https://commons.apache.org/proper/commons-email/userguide.html
