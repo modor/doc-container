@@ -17,3 +17,8 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - 和```hashCode()```方法的常规协定保持一致。
 - 为了该对象能在哈希表中存储和检索。
 
+### 6.List和Set区别？
+- List有：ArrayList、LinkedList和Vector。Set分为HashSet和TreeSet；List可以重复，Set不可重复；HashSet底层实际上是HashMap的键值，TreeSet是TreeMap的键值，value存的都是new Objec()对象。
+- add(),contains(),remove()时候List只调用的是equals()方法判断是否重复，Set则先调用hashCode()方法,再调用equals()方法。
+
+### 7.比较器的使用有哪些？
