@@ -30,3 +30,8 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - HashMap几乎可以等价于Hashtable，除了HashMap是非线程同步的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则相反。
 - 由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。
 - ConcurrentHashMap融合了hashtable和hashmap二者的优势,但不能接受null。
+
+### 9.异常和错误区别是什么？
+- Throwable类是 Java语言中所有错误或异常的超类。
+- Error用于标记严重错误，一般的应用程序不应该去try/catch这种错误，而是交给jvm处理。
+- RuntimeException是可能在执行方法期间抛出但未被捕获的异常，RuntimeException的任何子类都无需在 throws子句中进行声明，也可以不用处理而交给jvm处理。除此之外其他Exception都需要进行异常捕获处理。
