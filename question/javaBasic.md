@@ -21,4 +21,12 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - List有：ArrayList、LinkedList和Vector。Set分为HashSet和TreeSet；List可以重复，Set不可重复；HashSet底层实际上是HashMap的键值，TreeSet是TreeMap的键值，value存的都是new Objec()对象。
 - add(),contains(),remove()时候List只调用的是equals()方法判断是否重复，Set则先调用hashCode()方法,再调用equals()方法。
 
-### 7.比较器的使用有哪些？
+### 7.比较器有哪些使用方式？
+- 继承Comparable接口，并实现compareTo（）方法；
+- 定义一个单独的对象比较器，继承自Comparator接口，实现compare（）方法。
+
+
+### 8.各个Map有什么区别？
+- HashMap几乎可以等价于Hashtable，除了HashMap是非线程同步的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则相反。
+- 由于Hashtable是线程安全的也是synchronized，所以在单线程环境下它比HashMap要慢。
+- ConcurrentHashMap融合了hashtable和hashmap二者的优势,但不能接受null。
