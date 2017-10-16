@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+/*
+ *1. 一个配置文件可以多个package，但package名字不能想相同。
+ *2. struts-default让类具有action功能作用。
+ *3. namespace和action标签的name属性构成访问路径，不写默认为"/"，同时action的name属性也不能相同。
+ *4. result默认是转发操作，用type属性定义，在action返回值和name属性值相同时候则执行转发或者跳转操作。
+ *5. execute的返回值可以为void或者"none"（继承或者实现接口时候为Action.NONE），result的name属性不配置即可。
+ */
+-->
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+        
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+    <package name="hello" extends="struts-default" namespace="/">
+		<action name="hello" class="io.modor.test.HelloStrutsAction" method="execute">
+			<result name="Hello">/hello.jsp</result>
+		</action>
+		<action name="book_*" class="io.modor.test.BookAction" method="{1}"></action>
+    </package>
+    <include file="hello.xml"></include>
+</struts>
