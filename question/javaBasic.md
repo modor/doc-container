@@ -23,7 +23,7 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - ArrayList在元素填满容器时会自动扩充容器大小的50%，而Vector则是100%，因此ArrayList更节省空间。
 
 ### 7.比较器有哪些使用方式？
-- 继承Comparable接口，并实现compareTo（）方法；
+- 继承Comparable接口，并实现compareTo（）方法。
 - 定义一个单独的对象比较器，继承自Comparator接口，实现compare（）方法。
 
 ### 8.各个Map有什么区别？
@@ -35,3 +35,9 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - Throwable类是 Java语言中所有错误或异常的超类。
 - Error用于标记严重错误，一般的应用程序不应该去try/catch这种错误，而是交给jvm处理。
 - RuntimeException是可能在执行方法期间抛出但未被捕获的异常，RuntimeException的任何子类都无需在 throws子句中进行声明，也可以不用处理而交给jvm处理。除此之外其他Exception都需要进行异常捕获处理。
+
+### 10.注解的使用和作用？
+- JDK提供了四个元注解（1.8新增了类型注解和重复注解），通过四个元注解（@Documented、@Retention、@Target、@Inherited）和@interface关键字来定义自定义注解。
+- JDK提供的常用注解有三个：@Override、@Deprecated、@SuppressWarnnings这三个注解由IDE和编译器来解析使用，这三个注解都是语法糖。
+- 自定义注解的使用主要是运行时注解，一般是由框架通过反射来获取注解的值，进行校验或者注入到类中。
+- 自定义注解支持的数据类型包括：所有基本数据类型、String类型、Class类型、enum类型、Annotation类型以及所有以上类型的数组。
