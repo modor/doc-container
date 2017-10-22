@@ -22,3 +22,7 @@
 - 属性封装，Action类中直接定义属性。
 - 模型驱动封装，Action实现ModelDriven接口。
 - 表达式封装，适用于list和map封装。
+
+### 6.如何获取值栈并向其中存放数据？
+- 通过ActionContext.getContext().getValueStack()获取值栈。
+- 三种方式存放值栈：调用值栈set()方法（存放到String当中）、调用值栈push()方法（存放到HashMap当中）、定义action变量（存放到ValueStackDemoAction当中）。

@@ -15,7 +15,7 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 
 #### 5.重写equals()方法时候为什么必须重写hashCode()方法？
 - 和```hashCode()```方法的常规协定保持一致。
-- 为了该对象能在哈希表中存储和检索。
+- 为了该对象能在哈希表中存储和检索，如果不重写hashCode()，那么存入的每个对象将会是不同的，该对象将再也没法被检索和删除，将会导致内存泄露。
 
 ### 6.List和Set区别？
 - List有：ArrayList、LinkedList和Vector。Set分为HashSet和TreeSet；List可以重复，Set不可重复；HashSet底层实际上是HashMap的键值，TreeSet是TreeMap的键值，value存的都是new Objec()对象。

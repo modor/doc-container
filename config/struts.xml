@@ -16,10 +16,18 @@
 	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
 	
     <package name="hello" extends="struts-default" namespace="/">
+    <!--自定义拦截器  -->
+    <interceptors>
+    	<interceptor name="login" class="io.modor.test.LoginAction"></interceptor>
+    </interceptors>
         <global-results>
     		<result name="success">/index.jsp</result>
     	</global-results>
 		<action name="hello" class="io.modor.test.HelloStrutsAction" method="execute">
+			<interceptor-ref name="loginintercept">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="Hello">/hello.jsp</result>
 		</action>
 		<action name="book_*" class="io.modor.test.BookAction" method="{1}"></action>
