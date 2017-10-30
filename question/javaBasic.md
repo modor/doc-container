@@ -41,3 +41,9 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - JDK提供的常用注解有三个：@Override、@Deprecated、@SuppressWarnnings这三个注解由IDE和编译器来解析使用，这三个注解都是语法糖。
 - 自定义注解的使用主要是运行时注解，一般是由框架通过反射来获取注解的值，进行校验或者注入到类中。
 - 自定义注解支持的数据类型包括：所有基本数据类型、String类型、Class类型、enum类型、Annotation类型以及所有以上类型的数组。
+
+### 11.ReenterLock的特点有哪几个？
+- 可重入（重复使用，需要相应次数解锁）
+- 可中断（lockInterruptibly）
+- 可限时（tryLock）
+- 公平锁（默认为非公平锁，若要使用公平锁，创建锁对象时候指定为true）
