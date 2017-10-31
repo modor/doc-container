@@ -47,3 +47,9 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - 可中断（lockInterruptibly）
 - 可限时（tryLock）
 - 公平锁（默认为非公平锁，若要使用公平锁，创建锁对象时候指定为true）
+
+### 12.final关键字特点有哪些？
+- final类不能被继承，没有子类，final类中的方法默认是final的。
+- final方法不能被子类的方法覆盖，但可以被继承。
+- final成员变量表示常量，只能被赋值一次，赋值后值不再改变。
+- final不能用于修饰构造方法。
