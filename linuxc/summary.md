@@ -6,3 +6,19 @@
 * -g gcc -g *.c -o name生成调试执行文件
 * -O1 gcc -O1 *.c -o name选择优化级别，级别为1-3。
 
+####  2.打包静态库
+* gcc *.c -c -I../include
+* ar rcs libMyLib.a *.o
+* gcc main.c -Iinclude -L lib -l MyLib -o main(库名掐头去尾)
+
+### 3.打包动态库
+* gcc -fPIC -c *.c -I../include
+* gcc -shared -o libMyLib.so *.o -Iinclude
+* gcc main.c -Iinclude -L./lib -lMyLib -o main
+
+### 4.内存分布
+* ELF： .bss(未初始化全局变量) .data(已初始化全局变量) .text
+* #define NULL (void*) 0 对应0-4k地址
+
+### 5.线程查看
+* ps -Lf pid
