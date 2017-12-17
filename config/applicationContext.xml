@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 通过配置文件管理bean的约束 <beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd"> -->
+
+<!-- <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+<!-- 	<bean id="user" class="io.modor.entity.User">
+		<constructor-arg name="username" value="testName"></constructor-arg>
+		<property name="data" value="testData"></property>
+	</bean> -->
+	<!-- <bean id="userDao" class="io.modor.UserDao"></bean> <bean id="userService" 
+		class="io.modor.UserService"> <property name="userDao" ref="userDao"></property> 
+		</bean> -->
+
+	<bean id="orderDao" class="io.modor.entity.OrderDao"></bean>
+	<bean id="user" class="io.modor.entity.User"></bean>
+	<bean id="customerService" class="io.modor.entity.CustomerService"></bean>
+
+	<aop:config>
+		<aop:pointcut expression="execution(* io.modor.entity.User.*(..))" id="pointcut"/>
+		<aop:aspect ref="customerService">
+			<!-- <aop:before method="before" pointcut-ref="pointcut"/> -->
+			<aop:around method="around" pointcut-ref="pointcut"/>
+		</aop:aspect>
+	</aop:config>
+	<!-- 扫描注解 -->
+<!-- 	<context:component-scan base-package="io.modor.entity"></context:component-scan>
+ -->
+ </beans>
