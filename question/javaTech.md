@@ -22,6 +22,13 @@ Java RMI框架（远程方法调用）
 * 破坏双亲委派  
 &emsp;&emsp;破坏双亲委派是指在自定义加载器中破坏，默认自义定加载器只需继承ClassLoader类，然后重写findClass方法即可。而打破双亲委派机制则不仅要继承ClassLoader类，loadClass和findClass方法都要重写，以破坏loadClass中在找不到该类时把加载查询交给父加载器。
 ***
+类加载时机
+-----
+* 遇到new、getstatic、putstatic或invokestatic指令时：即new关键字实例化对象的时候和读取或者设置一个静态字段的时候（final修饰除外）。
+* 反射调用时：即调用Class.forname("className")、类名.class.newInstance()时。
+* 虚拟机启动时会加载含有main()方法的类。
+* 使用jdk1.7动态语言支持时。
+***
 内存溢出
 -----
 * 堆溢出  
