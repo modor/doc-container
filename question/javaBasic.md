@@ -23,8 +23,8 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - ArrayList在元素填满容器时会自动扩充容器大小的50%，而Vector则是100%，因此ArrayList更节省空间。
 
 ### 7.比较器有哪些使用方式？
-- 继承Comparable接口，并实现compareTo（）方法。
-- 定义一个单独的对象比较器，继承自Comparator接口，实现compare（）方法。
+- 继承Comparable接口，并实现compareTo()方法。
+- 定义一个单独的对象比较器，继承自Comparator接口，实现compare()方法。
 
 ### 8.各个Map有什么区别？
 - HashMap几乎可以等价于Hashtable，除了HashMap是非线程同步的，并可以接受null(HashMap可以接受为null的键值(key)和值(value)，而Hashtable则相反。
