@@ -33,8 +33,8 @@
 （循环屏障，new CyclicBarrier(n,thread),await(),等待数量达到n,则开始执行thread）  
 （交换器，两个线程传入new Exchanger(),通过exchange(obj),交换对象）  
 （Phaser，替代CoundDownLatch和CyclicBarrier）  
-2）执行器：
-3）并发集合：
+2）执行器：  
+3）并发集合：  
 （ConcurrentHashMap:比HashTable效率高）  
 （ConcurrentLinkedQueue:非阻塞队列）  
 （BlockingQueue:ArrayDeque(数组双端队列)、PriorityQueue(优先级队列)、PriorityQueue(优先级队列)、ConcurrentLinkedQueue(基于链表的并发队列)、DelayQueue(延期阻塞队列)、ArrayBlockingQueue(基于数组的并发阻塞队列)、LinkedBlockingQueue(基于链表的FIFO阻塞队列)、LinkedBlockingDeque(基于链表的FIFO双端阻塞队列)、PriorityBlockingQueue(带优先级的无界阻塞队列)、SynchronousQueue(并发同步阻塞队列)）  
