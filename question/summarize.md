@@ -16,7 +16,8 @@
 ####  3.ORM框架需要解决的问题？
 1）缓存问题  
 2）查询数据映射对象问题  
-3）事务处理问题  
+3）关联数据查询处理（一对一、一对多、多对多）  
+4）事务处理问题  
 
 ####  4.并发工具包要解决的问题？
 1）同步器：为特定的同步问题提供解决方案。  
@@ -45,3 +46,13 @@
 （AtomicReference:原子更新引用类型，AtomicReferenceFieldUpdater:原子更新引用类型里的字段，AtomicMarkableReference:原子更新带有标记为的引用类型）  
 （AtomicIntegerFieldUpdater:原子更新整型的字段的更新器，AtomicLongFieldUpdater:原子更新长整型的字段的更新器，AtomicStampedReference:原子更新带有版本号的引用类型）  
 6）locks包：  
+（AbstractOwnableSynchronizer 一个线程拥有的同步器，这个类提供了创建锁和相关同步器的基础。）  
+（AbstractQueuedLongSynchronizer 所有的同步状态都是用long变量来维护的，而不是int，在需要64位的属性来表示状态的时候会很有用。）  
+（AbstractQueuedSynchronizer 为实现依赖于先进先出队列的阻塞锁和相关同步器（信号量、事件等等）提供的一个框架，它依靠int值来表示状态。）  
+（Condition 将 Object 监视器方法（wait、notify 和 notifyAll）分解成截然不同的对象，以便通过将这些对象与任意 Lock 实现组合使用，为每个对象提供多个等待 set （wait-set）。其中，Lock 替代了 synchronized 方法和语句的使用。这个是被绑定在Lock上一起使用的。）  
+（Lock 实现了比synchronized更多的功能，需要注意的是，为了确保可以释放锁，需要在finally语句块中unlock。）  
+（LockSupport LockSupport是用来创建锁和其他同步类的基本线程阻塞原语。LockSupport中的park() 和 unpark() 的作用分别是阻塞线程和解除阻塞线程，而且park()和unpark()不会遇到“Thread.suspend 和 Thread.resume所可能引发的死锁”问题。）  
+（ReadWriteLock 读写锁，读和写是互斥的，多个读锁不互斥，也就是说，在读的时候，不能写，在写的时候，不能读，但是在读的时候可以有多个线程同时读。）  
+（ReentrantLock 可重入锁。）  
+（ReentrantReadWriteLock 可重入读写锁。）  
+（StampedLock Java 1.8提供了一种读写锁。）  

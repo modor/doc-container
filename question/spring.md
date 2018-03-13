@@ -30,3 +30,7 @@
 ### 6.如何进行注解注入对象？
 - 属性上面加@Autowired注解。
 - 属性上面加@Resource(name="对象注解value值")
+
+### 7.spring-boot的web.xml处理方式
+- spring中SpringServletContainerInitializer实现了servlet3.0的ServletContainerInitializer接口，容器启动时会自动扫描当前服务中ServletContainerInitializer的实现类，且优先级会高于xml中配置的listener。SpringServletContainerInitializer中的onStartup方法中指定了类型为WebApplicationInitializer.class，onStartup方法执行时，会遍历该set，并使用newInstance()方式进行实例化，实例化后依据@Order注解进行排序，最后在依次调用onStartup(ServletContext)方法，完成初始化。
+- 故spring-boot中SpringBootServletInitializer实现了WebApplicationInitializer接口，spring会自动扫描接口实现类SpringBootServletInitializer，将初始化信息加载进去。
