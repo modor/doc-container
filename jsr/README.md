@@ -89,7 +89,7 @@ JSR173 |Streaming API for XML (StAX)                                  |1.0
 
 
 **注：**   
-* 由于Glassfish是由SUN基于Java EE做的参考实现，所以，到其官网下载Java EE SDK时候会把Glassfish一起下载下来，然后两者是不同的东西，Glassfish是基于Java EE SDK做出的产品。Glassfish是开源的，遵循CDDL 1.0版本和GPL2.0版本，故Java EE SDK也是开源的，只要遵循开源协议便没有版权问题。  
+* 由于Glassfish是由SUN基于Java EE做的参考实现，所以，到其官网下载Java EE SDK时候会把Glassfish一起下载下来，然后两者是不同的东西，Glassfish是基于Java EE SDK做出的产品。 Glassfish是开源的，遵循CDDL 1.0版本和GPL2.0版本，故Java EE SDK也是开源的，只要遵循开源协议便没有版权问题。  
 * 但Java SE SDK却分为SUN JDK和OPEN JDK，所以，到Oracle官网上下载的Java SE SDK是存在版权风险的。  
 * 虽说Java EE开源，但各个厂商为了规避风险，所使用的Java EE基础库都是根据JSR自己实现的。比如，tomcat所用的jar是tomcat开发人员自己实现的servlet标准，jboss所使用的的Java EE基础库则是Jboss社区自己根据JSR自己实现。  
 * 另外，RedHat讲Jboss的名字改叫WildFly（真难听）了。还有，有些实现是包含与被包含的关系，比如，Java EE容器里面一般都实现了servlet，Restful这些被JSR342包含的内容，但大多数情况用不到Java EE的全部标准，于是像Tomcat和Jersey只实现了Java EE当中的servlet和restful标准。  
