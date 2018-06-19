@@ -13,3 +13,9 @@ yum install ctags indent -y
 * 执行shell查看man：!man 3 open
 * 生成跳转索引：ctags -R *
 * 函数跳转和返回：ctrl+]、ctrl+t
+
+### 5.其他
+* 目录管理插件：NERDTree
+* 源代码概览插件：Taglist
+* 语法补全插件：Supertab
+* 插件管理插件：Pathogen
