@@ -95,15 +95,14 @@ synchronized用在普通方法上是在对象上加锁，位于堆里面；用�
 * 1）调用socket的 shutdownOutput 方法（Java）关闭输出流，该方法的文档说明为，将此套接字的输出流置于“流的末尾”，这样另一端的输入流上的read操作就会返回-1。
 * 2）约定结束标志，当读到该结束标志时退出不再read。 （Http 的 Transfer-Encoding: Chunked 首部，表示将以一个 length 为 0 的 chunk 做结束标志）。
 * 3）设置超时（timeout），会在设置的超时时间到达后抛出SocketTimeoutException异常而不再阻塞。
-* 4）双方定义好通信协议，在协议头部约定好数据的长度。当读取到的长度等于这个长度时就不再继续调用read方法。（Http 的 content-length 首部，会给出主体的长度）。  
-
+* 4）双方定义好通信协议，在协议头部约定好数据的长度。当读取到的长度等于这个长度时就不再继续调用read方法。（Http 的 content-length 首部，会给出主体的长度）。
 5.了解哪几种序列化协议？包括使用场景和如何去选择。  
 6.Netty的零拷贝实现。  
 7.Netty的高性能表现在哪些方面。  
-8.http协议的content-length。  
-1）服务器已经知道资源大小，通过content-length这个header告诉你。 
-2）服务器没法提前知道资源的大小，或者不愿意花费资源提前计算资源大小，就会把http回复报文中加一个header叫Transfer-Encoding:chunked，就是分块传输的意思。每一块都使用固定的格式，前边是块的大小，后面是数据，然后最后一块大小是0。这样客户端解析的时候就需要注意去掉一些无用的字段。 
-3）服务器不知道资源的大小，同时也不支持chunked的传输模式，那么就既没有content-length头，也没有transfer-encoding头，这种情况下必须使用短连接，以连接结束来标示数据传输结束，传输结束就能知道大小了。这时候服务器返回的header里Connection一定是close。
+8.http协议的content-length。
+* 1）服务器已经知道资源大小，通过content-length这个header告诉你。 
+* 2）服务器没法提前知道资源的大小，或者不愿意花费资源提前计算资源大小，就会把http回复报文中加一个header叫Transfer-Encoding:chunked，就是分块传输的意思。每一块都使用固定的格式，前边是块的大小，后面是数据，然后最后一块大小是0。这样客户端解析的时候就需要注意去掉一些无用的字段。 
+* 3）服务器不知道资源的大小，同时也不支持chunked的传输模式，那么就既没有content-length头，也没有transfer-encoding头，这种情况下必须使用短连接，以连接结束来标示数据传输结束，传输结束就能知道大小了。这时候服务器返回的header里Connection一定是close。
 
 ## 分布式相关
 1.Dubbo的底层实现原理和机制。  
