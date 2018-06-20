@@ -68,69 +68,69 @@ synchronized用在普通方法上是在对象上加锁，位于堆里面；用�
 ### 24.八种阻塞队列以及各个阻塞队列的特性。
 
 ## 关于Spring
-1.BeanFactory和FactoryBean。
-2.Spring IOC的理解，其初始化过程。
-3.BeanFactory和 ApplicationContext。
-4.Spring Bean的生命周期，如何被管理的。
-5.Spring Bean的加载过程是怎样的。
-6.如果要你实现Spring AOP，请问怎么实现。
-7.如果要你实现Spring IOC，你会注意哪些问题。
-8.Spring是如何管理事务的，事务管理机制。
-Spring并不直接管理事务，而是提供了多种事务管理器，Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager，通过这个接口，Spring为各个平台如JDBC、Hibernate等都提供了对应的事务管理器，但是具体的实现就是各个平台自己的事情了
+1.BeanFactory和FactoryBean。  
+2.Spring IOC的理解，其初始化过程。  
+3.BeanFactory和 ApplicationContext。  
+4.Spring Bean的生命周期，如何被管理的。  
+5.Spring Bean的加载过程是怎样的。  
+6.如果要你实现Spring AOP，请问怎么实现。  
+7.如果要你实现Spring IOC，你会注意哪些问题。  
+8.Spring是如何管理事务的，事务管理机制。  
+* 1）Spring并不直接管理事务，而是提供了多种事务管理器，Spring事务管理器的接口是org.springframework.transaction.PlatformTransactionManager，通过这个接口，Spring为各个平台如JDBC、Hibernate等都提供了对应的事务管理器，但是具体的实现就是各个平台自己的事情了。
 
-9.Spring的不同事务传播行为有哪些，干什么用的。
-10.Spring中用到了那些设计模式。
-11.SpringMVC的工作原理。
-12.Spring循环注入的原理。
-13.SpringAOP的理解，各个术语，他们是怎么相互工作的。
-14.Spring如何保证 Controller并发的安全。
+9.Spring的不同事务传播行为有哪些，干什么用的。  
+10.Spring中用到了那些设计模式。  
+11.SpringMVC的工作原理。  
+12.Spring循环注入的原理。  
+13.SpringAOP的理解，各个术语，他们是怎么相互工作的。  
+14.Spring如何保证 Controller并发的安全。  
 
 ## 关于Netty
-1.BIO、NIO和AIO。
-2.Netty 的各大组件。
-3.Netty的线程模型。
-4.TCP粘包/拆包的原因及解决方法。
+1.BIO、NIO和AIO。  
+2.Netty 的各大组件。  
+3.Netty的线程模型。  
+4.TCP粘包/拆包的原因及解决方法。  
 因为TCP本身是无边界的协议，因此它并没有结束标志。不论是使用 C语言、Python 还是 Java，都是如此。socket和文件不一样，从文件中读，读到末尾就到达流的结尾了，所以会返回-1或null，循环结束，但是socket是连接两个主机的桥梁，一端无法知道另一端到底还有没有数据要传输。socket如果不关闭的话，read之类的阻塞函数会一直等待它发送数据，就是所谓的阻塞。
 如果发送的东西非常多必须要用循环读的话，可以有一下解决方案：
-* 调用socket的 shutdownOutput 方法（Java）关闭输出流，该方法的文档说明为，将此套接字的输出流置于“流的末尾”，这样另一端的输入流上的read操作就会返回-1。
-* 约定结束标志，当读到该结束标志时退出不再read。 （Http 的 Transfer-Encoding: Chunked 首部，表示将以一个 length 为 0 的 chunk 做结束标志）。
-* 设置超时（timeout），会在设置的超时时间到达后抛出SocketTimeoutException异常而不再阻塞。
-* 双方定义好通信协议，在协议头部约定好数据的长度。当读取到的长度等于这个长度时就不再继续调用read方法。（Http 的 content-length 首部，会给出主体的长度）。
+* 1）调用socket的 shutdownOutput 方法（Java）关闭输出流，该方法的文档说明为，将此套接字的输出流置于“流的末尾”，这样另一端的输入流上的read操作就会返回-1。
+* 2）约定结束标志，当读到该结束标志时退出不再read。 （Http 的 Transfer-Encoding: Chunked 首部，表示将以一个 length 为 0 的 chunk 做结束标志）。
+* 3）设置超时（timeout），会在设置的超时时间到达后抛出SocketTimeoutException异常而不再阻塞。
+* 4）双方定义好通信协议，在协议头部约定好数据的长度。当读取到的长度等于这个长度时就不再继续调用read方法。（Http 的 content-length 首部，会给出主体的长度）。  
 
-5.了解哪几种序列化协议？包括使用场景和如何去选择。
-6.Netty的零拷贝实现。
-7.Netty的高性能表现在哪些方面。
-8.http协议的content-length。
+5.了解哪几种序列化协议？包括使用场景和如何去选择。  
+6.Netty的零拷贝实现。  
+7.Netty的高性能表现在哪些方面。  
+8.http协议的content-length。  
 1）服务器已经知道资源大小，通过content-length这个header告诉你。 
 2）服务器没法提前知道资源的大小，或者不愿意花费资源提前计算资源大小，就会把http回复报文中加一个header叫Transfer-Encoding:chunked，就是分块传输的意思。每一块都使用固定的格式，前边是块的大小，后面是数据，然后最后一块大小是0。这样客户端解析的时候就需要注意去掉一些无用的字段。 
 3）服务器不知道资源的大小，同时也不支持chunked的传输模式，那么就既没有content-length头，也没有transfer-encoding头，这种情况下必须使用短连接，以连接结束来标示数据传输结束，传输结束就能知道大小了。这时候服务器返回的header里Connection一定是close。
 
 ## 分布式相关
-1.Dubbo的底层实现原理和机制。
-2.描述一个服务从发布到被消费的详细过程。
-3.分布式系统怎么做服务治理。
-4.接口的幂等性的概念。
-5.消息中间件如何解决消息丢失问题。
-6.Dubbo的服务请求失败怎么处理。
-7.重连机制会不会造成错误。
-8.对分布式事务的理解。
-9.如何实现负载均衡，有哪些算法可以实现？
-10.Zookeeper的用途，选举的原理是什么？
-11.数据的垂直拆分水平拆分。
-12.zookeeper原理和适用场景。
-13.zookeeper watch机制。
-14.redis/zk节点宕机如何处理。
-15.分布式集群下如何做到唯一序列号。
-16.如何做一个分布式锁。
-17.用过哪些MQ，怎么用的，和其他mq比较有什么优缺点，MQ的连接是线程安全的吗。
-18.MQ系统的数据如何保证不丢失。
-19.列举出你能想到的数据库分库分表策略；分库分表后，如何解决全表查询的问题。
-20.zookeeper的选举策略。
-21.全局ID。
-22.raft算法原理及脑裂解决思路。
+1.Dubbo的底层实现原理和机制。  
+2.描述一个服务从发布到被消费的详细过程。  
+3.分布式系统怎么做服务治理。  
+4.接口的幂等性的概念。  
+5.消息中间件如何解决消息丢失问题。  
+6.Dubbo的服务请求失败怎么处理。  
+7.重连机制会不会造成错误。  
+8.对分布式事务的理解。  
+9.如何实现负载均衡，有哪些算法可以实现？  
+10.Zookeeper的用途，选举的原理是什么？  
+11.数据的垂直拆分水平拆分。  
+12.zookeeper原理和适用场景。  
+13.zookeeper watch机制。  
+14.redis/zk节点宕机如何处理。  
+15.分布式集群下如何做到唯一序列号。  
+16.如何做一个分布式锁。  
+17.用过哪些MQ，怎么用的，和其他mq比较有什么优缺点，MQ的连接是线程安全的吗。  
+18.MQ系统的数据如何保证不丢失。  
+19.列举出你能想到的数据库分库分表策略；分库分表后，如何解决全表查询的问题。  
+20.zookeeper的选举策略。  
+21.全局ID。  
+22.raft算法原理及脑裂解决思路。  
 
 ## 数据库
-1.mysql分页有什么优化。
+1.mysql分页有什么优化。  
 1）页码和主键关联，然后使用between and来替代limit查询。
 2）id建立索引，然后先查询出id所在行，然后利用子查询的形式（id>=）来查询，如：SELECT * FROM product WHERE ID > =(select id from product limit 866613, 1) limit 20。
 
@@ -173,7 +173,7 @@ Spring并不直接管理事务，而是提供了多种事务管理器，Spring�
 12.OOM错误，stackoverflow错误，permgen space错误。
 
 ## 其他情况
-1.高可用方案之脑裂问题。
-1）添加冗余的心跳线，例如双线条线，尽量减少“裂脑”发生机会。
-2）启用磁盘锁，正在服务一方锁住共享磁盘，“裂脑”发生时，让对方完全“抢不走”共享磁盘资源。
-3）设置仲裁机制。例如设置参考IP（如网关IP），当心跳线完全断开时，2个节点都各自ping一下 参考IP，不通则表明断点就出在本端。
+1.高可用方案之脑裂问题。  
+* 1）添加冗余的心跳线，例如双线条线，尽量减少“裂脑”发生机会。  
+* 2）启用磁盘锁，正在服务一方锁住共享磁盘，“裂脑”发生时，让对方完全“抢不走”共享磁盘资源。
+* 3）设置仲裁机制。例如设置参考IP（如网关IP），当心跳线完全断开时，2个节点都各自ping一下 参考IP，不通则表明断点就出在本端。
