@@ -31,3 +31,9 @@
 
 ### 7.线程查看
 * ps -Lf pid
+
+### 8.man手册使用
+man -k sleep 查看包含sleep的手册 
+man -f sleep 查看名为sleep的手册(多个序号) 
+man -a sleep 查看所有名为sleep的帮助信息
+man 3 sleep 查看序号3的sleep 
