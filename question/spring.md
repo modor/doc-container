@@ -16,7 +16,9 @@
 
 ####  3.属性注入的三种方式是什么？
 - 使用set方法方式。
+<constructor-arg type="int" value="2001"/>
 - 使用构造方法注入方式。
+<property name="data" value="testData"/>
 - 接口注入方式。
 
 ### 4.spring在web项目中如何使用？
