@@ -1,7 +1,11 @@
 ####  1.Bean实例化的三种方式？
 - 使用类的无参构造方法创建。
+<bean id="user" class="io.modor.entity.User">
 - 使用静态工厂创建。
+<bean id="factoryUser" class="io.modor.factory.UserFactory" factory-method="getUser"></bean>
 - 使用实例工厂创建。
+<bean id="factory" class="io.modor.factory.UserFactory"></bean>
+<bean id="factoryUser" factory-bean="factory" factory-method="getUser"></bean>
 
 ####  2.Scope属性值有哪些？
 - singleton 默认值
