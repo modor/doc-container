@@ -53,3 +53,9 @@ getClass().getName() + '@' + Integer.toHexString(hashCode())
 - final方法不能被子类的方法覆盖，但可以被继承。
 - final成员变量表示常量，只能被赋值一次，赋值后值不再改变。
 - final不能用于修饰构造方法。
+
+### 13.Linux查找java耗CPU代码
+- ps -ef确定应用的PID
+- top -Hp pid获取耗资源的线程id
+- 将线程id转换为16进制
+- 使用 jstack pid | grep 16进制线程id 获取线程对应的代码
