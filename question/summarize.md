@@ -42,7 +42,7 @@
 4）Fork/Join框架：  
 5）atomic包：  
 （AtomicBoolean:原子更新布尔类型，AtomicInteger:原子更新整型，AtomicLong:原子更新整型）  
-（AtomicIntegerArray:原子更新整型数组里的元素，AtomicLongArray:原子更新长整型数组里的元素，AtomicReferenceArray:原子更新引用类型数组里的元素，）  
+（AtomicIntegerArray:原子更新整型数组里的元素，AtomicLongArray:原子更新长整型数组里的元素，AtomicReferenceArray:原子更新引用类型数组里的元素）  
 （AtomicReference:原子更新引用类型，AtomicReferenceFieldUpdater:原子更新引用类型里的字段，AtomicMarkableReference:原子更新带有标记为的引用类型）  
 （AtomicIntegerFieldUpdater:原子更新整型的字段的更新器，AtomicLongFieldUpdater:原子更新长整型的字段的更新器，AtomicStampedReference:原子更新带有版本号的引用类型）  
 6）locks包：  
