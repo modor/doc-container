@@ -80,3 +80,23 @@ ip link set dev lan0 mtu 1480
 ip link add name br0 type bridge
 ip link set dev eth0 master br0（移除：ip link set dev eth0 nomaster）
 ```
+
+8.添加显示vlan设备
+```
+ip link add link ens37 name ens37.100 type vlan id 100
+ip -d link show ens37.100
+ip link set dev ens37.100 down
+ip link delete ens37.100
+```
+
+9.添加虚拟veth设备对
+```
+ip link add veth0 type veth peer name veth1
+ip link set veth0 up
+```
+
+10.查看监听端口
+```
+ss -nltup
+```
+
