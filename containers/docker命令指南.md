@@ -5,7 +5,7 @@
 1.docker run或者docker create  
 
 run 							|create |含义
------ 							|-----  |-----
+----- 							|-----  |-----  
 -a, --attach=[] 				|同     	|Attach to STDIN, STDOUT or STDERR
 --add-host=[] 					|同       	|添加hostname:ip到/etc/hosts中
 --blkio-weight=0 				|同    	|块IO(相对权重)，介于10和1000之间，或0禁用(默认为0)
