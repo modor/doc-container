@@ -3,6 +3,7 @@
 
 ## 部分重要命令参数详情
 1.docker run或者docker create  
+
 run 							|create |含义
 ----- 							|-----  |-----
 -a, --attach=[] 				|同     	|Attach to STDIN, STDOUT or STDERR
