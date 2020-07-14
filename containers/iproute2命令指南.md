@@ -77,7 +77,7 @@ ip link set dev lan0 mtu 1480
 
 7.创建linux网桥，添加接口到网桥
 ```
-ip link add name br0 type bridge
+ip link add/delete name br0 type bridge
 ip link set dev eth0 master br0（移除：ip link set dev eth0 nomaster）
 ```
 
